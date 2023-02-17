@@ -1,6 +1,5 @@
 from selenium import webdriver
 driver = webdriver.Chrome()
-from selenium.webdriver.support.select import Select
 driver.get('http://practice.automationtesting.in/')
 account = driver.find_element_by_id('menu-item-50').click()
 username = driver.find_element_by_id('username')
