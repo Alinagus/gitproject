@@ -1,0 +1,15 @@
+from selenium import webdriver
+driver = webdriver.Chrome()
+from selenium.webdriver.support.select import Select
+driver.get('http://practice.automationtesting.in/')
+driver.execute_script('window.scrollBy(0,600);')
+Read_more = driver.find_element_by_css_selector('#text-22-sub_row_1-0-2-0-0>div>ul>li>.button').click()
+Reviews = driver.find_element_by_css_selector('.tabs.wc-tabs>li:nth-child(2)>a').click()
+Stars = driver.find_element_by_css_selector('.star-5').click()
+comment = driver.find_element_by_id('comment')
+comment.send_keys('Nice book!')
+name = driver.find_element_by_id('author')
+name.send_keys('Alina')
+email = driver.find_element_by_id('email')
+email.send_keys('guseinovaalina02@gmail.com')
+submit = driver.find_element_by_css_selector('#submit:nth-child(1)').click()
