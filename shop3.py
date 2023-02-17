@@ -1,21 +1,24 @@
 from selenium import webdriver
 driver = webdriver.Chrome()
-import time
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 driver.get('http://practice.automationtesting.in/')
-shop_3 = driver.find_element_by_id('menu-item-40').click()
-add_to_busket = driver.find_element_by_css_selector('.button.product_type_simple.add_to_cart_button.ajax_add_to_cart').click()
-time.sleep(3)
-check_price = driver.find_element_by_css_selector('.wpmenucart-contents>.amount')
-element_get_text = check_price.text
-assert element_get_text == '₹350.00'
-item = driver.find_element_by_class_name('cartcontents')
-element_get_text = item.text
-assert element_get_text == '1 Item'
-busket = driver.find_element_by_class_name('cartcontents').click()
-Subtotal = WebDriverWait(driver, 10).until(
-    EC.text_to_be_present_in_element((By.CSS_SELECTOR, '.cart-subtotal>td>.woocommerce-Price-amount.amount'), '₹'))
-total = WebDriverWait(driver, 10).until(
-    EC.text_to_be_present_in_element((By.CSS_SELECTOR, 'strong>.woocommerce-Price-amount.amount'), '₹'))
+account = driver.find_element_by_id('menu-item-50').click()
+username = driver.find_element_by_id('username')
+username.send_keys('guseinovaalina02@gmail.com')
+password = driver.find_element_by_id('password')
+password.send_keys('AlinaGus2023!')
+login = driver.find_element_by_name('login').click()
+shop = driver.find_element_by_id('menu-item-40').click()
+select = driver.find_element_by_css_selector('.woocommerce-ordering>.orderby')
+check = select.get_attribute("value")
+print("value of check: ", check)
+select = driver.find_element_by_class_name('orderby')
+select_price = Select(select)
+select_price.select_by_value('price-desc')
+check2 = driver.find_element_by_css_selector('.orderby>option:nth-child(6)')
+ab = check2.get_attribute('selected')
+if ab == 'true':
+    print('Прверка пройдена')
+else: print(ab, 'что-то пошло не так')
+
+

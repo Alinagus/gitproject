@@ -1,6 +1,5 @@
 from selenium import webdriver
 driver = webdriver.Chrome()
-from selenium.webdriver.support.select import Select
 driver.get('http://practice.automationtesting.in/')
 driver.execute_script('window.scrollBy(0,600);')
 Read_more = driver.find_element_by_css_selector('#text-22-sub_row_1-0-2-0-0>div>ul>li>.button').click()

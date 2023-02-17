@@ -7,15 +7,10 @@ username.send_keys('guseinovaalina02@gmail.com')
 password = driver.find_element_by_id('password')
 password.send_keys('AlinaGus2023!')
 login = driver.find_element_by_name('login').click()
-shop = driver.find_element_by_id('menu-item-40').click()
-book = driver.find_element_by_css_selector('.products.masonry-done>li:nth-child(3)>a:nth-child(1)').click()
-test = driver.find_element_by_css_selector('#content>div>div>.product_title.entry-title')
-element = driver.find_element_by_css_selector(".summary.entry-summary>h1")
-element_get_text = element.text
-assert element_get_text == "HTML5 Forms"
-
-
-
-
-
+shop_2 = driver.find_element_by_id('menu-item-40').click()
+HTML = driver.find_element_by_css_selector('.cat-item.cat-item-19>a').click()
+items_count = driver.find_elements_by_class_name("woocommerce-LoopProduct-link")
+if len(items_count) !=3:
+    print('Ошибка', len(items_count))
+else: print('Отображается:', len(items_count))
 
